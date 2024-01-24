@@ -1,0 +1,28 @@
+﻿<Window x:Class= "BookChildrenWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:BookChildrenWPF.User_Controls"
+        xmlns:uc="clr-namespace:BookChildrenWPF.User_Controls"
+        x:Name="WindowStart"
+        mc:Ignorable="d"
+        d:DesignHeight="900" d:DesignWidth="1920"
+        FontFamily="Arial"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <DataTemplate x:Name="exhibitionView" x:Key="exhibitionView" DataType="{x:Type uc:Exhibition1View}">
+            <uc:Exhibition1View/>
+        </DataTemplate>
+        <DataTemplate x:Name="userChildren" x:Key="userChildren" DataType="{x:Type uc:UserChildren}">
+            <uc:UserChildren/>
+        </DataTemplate>
+        <DataTemplate x:Name="startView" x:Key="startView" DataType="{x:Type uc:StartView}">
+            <uc:StartView/>
+        </DataTemplate>
+        
+    </Window.Resources>
+    <ContentControl x:Name="contentControl" Content="{Binding}" Panel.ZIndex="999"></ContentControl>
+
+</Window>

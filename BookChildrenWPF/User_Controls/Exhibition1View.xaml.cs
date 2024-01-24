@@ -1,0 +1,69 @@
+﻿using BookChildrenWPF.Model;
+using MaterialDesignThemes.Wpf;
+using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Windows.Media.Imaging;
+
+namespace BookChildrenWPF.User_Controls
+{
+    /// <summary>
+    /// Логика взаимодействия для Exhibition1View.xaml
+    /// </summary>
+    public partial class Exhibition1View : UserControl
+    {
+        public List<string> objList = new List<string>(Directory.EnumerateFileSystemEntries("Exhibitions\\1. Пароход-музей Св. Николай", "*.jpg"));
+        public ObservableCollection<ImageUserCardModel> imageObj = new ObservableCollection<ImageUserCardModel> { };
+
+        void DataList()
+        {
+            for (int i = 0; i < objList.Count; i++)
+            {
+                ImageUserCardModel obj = new ImageUserCardModel();
+                obj.IdImageUserCard = i;
+                var image = new BitmapImage(new Uri(Path.GetFullPath(objList[i]), UriKind.Absolute));
+                obj.UrlImageUserCard = image;
+                obj.DescriptionImageUserCard = Path.GetFileNameWithoutExtension(objList[i]);
+                imageObj.Add(obj);
+            }
+        }
+
+        public Exhibition1View()
+        {
+            InitializeComponent();
+            videoElementEx.Play();
+            DataList();
+            UmageExhibition.ItemsSource = imageObj;
+        }
+
+        private void Clouse(object sender, RoutedEventArgs e)
+        {
+            Duration duration = new Duration(TimeSpan.FromSeconds(0.3));
+            var animationFrame = new ThicknessAnimation();
+            animationFrame.From = new Thickness(0, -168, 0, 0 );
+            animationFrame.To = new Thickness(-1920, -168, 1920, 0);
+            animationFrame.Duration = duration;
+            videoElementEx.Stop();
+            StartView player = new StartView();
+            player.videoElement.Volume = 0.5;
+
+            this.BeginAnimation(MarginProperty, animationFrame);
+            this.Content = null;
+        }
+
+        private async void OpenDialog(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            SampleDialog sempleDialog = new SampleDialog();
+            sempleDialog.DataSampleList = imageObj;
+            sempleDialog.idSampleDialog = (int)button.CommandParameter;
+            sempleDialog.DataContext = imageObj[(int)button.CommandParameter];
+            var result = await DialogHost.Show(sempleDialog, "RootDialog", null, null, null);
+        }
+    }
+}

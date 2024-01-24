@@ -1,0 +1,2 @@
+C:\Users\root\source\repos\BerndK\SvgToXaml\SvgToXaml\bin\Debug\SvgToXaml.exe BuildDict /inputdir "." /outputdir "." /outputname icons2 /useComponentResKeys=true /compResKeyNSName=iconPrev /compResKeyNS=icons2
+pause

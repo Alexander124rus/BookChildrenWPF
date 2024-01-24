@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="BookChildrenWPF.User_Controls.GameNewsCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             mc:Ignorable="d" 
+             Name="this"
+             d:DesignHeight="350" d:DesignWidth="250">
+    <UserControl.Resources>
+        <Style
+            TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#00000000"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontFamily" Value="Bahnschrift SemiLight Condensed"/>
+            <Setter Property="Height" Value="350"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            Background="{TemplateBinding Background}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <!--Image Section-->
+                                    <RowDefinition/>
+                                    <!--Caption-->
+                                </Grid.RowDefinitions>
+
+                                <Image
+                                    Width="250"
+                                    Height="250"
+                                    Stretch="UniformToFill"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    Source="{Binding Source, ElementName=this}" RenderTransformOrigin="-0.036,0.508" StretchDirection="Both"/>
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Name="caption"
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Center"
+                                    Text="{Binding Caption, ElementName=this, FallbackValue='No Text'}"
+                                    HorizontalAlignment="{Binding HorizontalContentAlignment,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}}"
+                                    VerticalAlignment="{Binding VerticalContentAlignment,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger
+                                            Property="IsMouseOver"
+                                            Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard SpeedRatio="5">
+                                            <ColorAnimation
+                                                Storyboard.TargetProperty="(TextBlock.Foreground).Color"
+                                                To="#FCAF17"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard SpeedRatio="5">
+                                            <ColorAnimation
+                                                Storyboard.TargetProperty="(TextBlock.Foreground).Color"
+                                                To="White"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Button x:Name="CardUser" Cursor="Hand"/>
+    <!--<Button x:Name="CardUser" Cursor="Hand" Click="{Binding ClikMouse, ElementName=this}"/>-->
+</UserControl>

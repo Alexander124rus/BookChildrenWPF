@@ -1,0 +1,199 @@
+﻿<UserControl x:Class="BookChildrenWPF.User_Controls.UserChildren"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:BookChildrenWPF.User_Controls"
+             xmlns:uc="clr-namespace:BookChildrenWPF.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <materialDesign:DialogHost DialogTheme="Inherit"
+                             Identifier="RootDialog"
+                             SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel MinWidth="220">
+                    <ToggleButton Margin="16"
+                        HorizontalAlignment="Right"
+                        DockPanel.Dock="Top"
+                        IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}"
+                        Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+
+                    <!--<TextBox x:Name="DemoItemsSearchBox"
+                        Width="200"
+                        Margin="16,4"
+                        materialDesign:HintAssist.Hint="Search"
+                       materialDesign:HintAssist.IsFloating="True"
+                       materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                       materialDesign:TextFieldAssist.HasClearButton="True"
+                       materialDesign:TextFieldAssist.HasOutlinedTextField="True"
+                       materialDesign:TextFieldAssist.TextFieldCornerRadius="4"
+                       DockPanel.Dock="Top"
+                       Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}" />-->
+
+                    <ListBox x:Name="DemoItemsListBox"
+                        Margin="0,16,0,16"
+                        AutomationProperties.Name="DemoPagesListBox"
+                        SelectionChanged="LstBox_SelectionChanged"
+                        PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp"
+                        
+                        
+                        Style="{StaticResource MaterialDesignNavigationPrimaryListBox}">
+                        <ListBox.Resources>
+                            <Style TargetType="ScrollBar" BasedOn="{StaticResource MaterialDesignScrollBarMinimal}" />
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="domain:DemoItem">
+                                <!--<Button Click="OpenUser" CommandParameter="{Binding IdUser}">
+                                    
+                                </Button>-->
+                                <TextBlock Margin="24,4,0,4"
+                                       AutomationProperties.AutomationId="DemoItemPage"
+                                       Text="{Binding NameUser}" />
+                                
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+
+            <DockPanel>
+                <materialDesign:ColorZone Padding="16"
+                                  materialDesign:ElevationAssist.Elevation="Dp4"
+                                  DockPanel.Dock="Top"
+                                  Mode="PrimaryMid" Panel.ZIndex="2">
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <ToggleButton x:Name="MenuToggleButton"
+                                AutomationProperties.Name="HamburgerToggleButton"
+                                Click="MenuToggleButton_OnClick"
+                                IsChecked="False"
+                                Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                            <Button Margin="24,0,0,0"
+                                materialDesign:RippleAssist.Feedback="{Binding RelativeSource={RelativeSource Self}, Path=Foreground, Converter={StaticResource BrushRoundConverter}}"
+                                Click="MovePrev"
+                                Content="{materialDesign:PackIcon Kind=ArrowLeft, Size=24}"
+                                Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}"
+                                Style="{StaticResource MaterialDesignToolButton}"
+                                ToolTip="Предыдущий" />
+                            <Button Margin="16,0,0,0"
+                                materialDesign:RippleAssist.Feedback="{Binding RelativeSource={RelativeSource Self}, Path=Foreground, Converter={StaticResource BrushRoundConverter}}"
+                                Click="MoveNext"
+                                Content="{materialDesign:PackIcon Kind=ArrowRight,Size=24}"
+                                Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}"
+                                Style="{StaticResource MaterialDesignToolButton}"
+                                ToolTip="Следующий" />
+                            <Button Margin="16,0,0,0"
+                                materialDesign:RippleAssist.Feedback="{Binding RelativeSource={RelativeSource Self}, Path=Foreground, Converter={StaticResource BrushRoundConverter}}"
+                                Click="Home"
+                                Content="{materialDesign:PackIcon Kind=Home, Size=24}"
+                                Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}"
+                                Style="{StaticResource MaterialDesignToolButton}"
+                                ToolTip="Главная" />
+                            <Button Margin="16,0,0,0"
+                                materialDesign:RippleAssist.Feedback="{Binding RelativeSource={RelativeSource Self}, Path=Foreground, Converter={StaticResource BrushRoundConverter}}"
+                                Click="OpenInformation"
+                                Content="{materialDesign:PackIcon Kind=Information, Size=24}"
+                                Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}"
+                                Style="{StaticResource MaterialDesignToolButton}"
+                                ToolTip="О выставке" />
+                        </StackPanel>
+                    </DockPanel>
+                </materialDesign:ColorZone>
+                <Grid Style="{DynamicResource UserControlBagraund}">
+                    <Grid Margin="100 0 100 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" MinHeight="4"></RowDefinition>
+                            <RowDefinition Height="auto" MinHeight="500"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="600"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Grid.Row="1">
+                            <Viewbox Stretch="Uniform">
+                                <TextBlock x:Name="Description" MaxWidth="1120" Margin="0,30,0,15" Padding="0 0 30 0" FontSize="34" Foreground="#fff" TextWrapping="Wrap" FontFamily="Bahnschrift SemiLight Condensed" TextAlignment="Justify" Text="{Binding DescriptionUser}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            </Viewbox>
+                            <Viewbox Stretch="Uniform">
+                                <TextBlock x:Name="Quotation" MaxWidth="1120" Margin="0 0" Padding="0 0 30 0" FontSize="30" Foreground="#fff" TextWrapping="Wrap" FontFamily="Franklin Gothic Book" Text="{Binding QuotationUser}" TextAlignment="Justify" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" FontStyle="Italic"/>
+                            </Viewbox>
+                            <uc:AudioPlayer 
+                                x:Name="AudioPlayer"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Top" 
+                                Margin="0 20 0 0"
+                                AudioText ="{Binding AudioNameUser}"
+                                SourceUrl="{Binding AudioPathUser}">
+                            </uc:AudioPlayer>
+                        </StackPanel>
+                        <Viewbox Grid.Column="1" Grid.Row="1" Stretch="Uniform" Cursor="">
+                            <Image Style="{DynamicResource ImagePerson}" MaxWidth="600"/>
+                        </Viewbox>
+
+                    </Grid>
+                    <uc:CustomScrollViewer
+                        Grid.Column="1"
+                        x:Name="scrollViewer"
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Disabled" VerticalAlignment="Bottom">
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Background="Transparent"
+                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            ScrollViewer.CanContentScroll="True">
+                            <ItemsControl x:Name="UserCardListBox">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Click="Open_razdel" CommandParameter="{Binding IdUserCard}" Height="auto" Width="auto" Margin="20,0,0,0" HorizontalAlignment="Center">
+                                            <uc:GameNewsCard
+                                                Caption="{Binding TextUserCard}"
+                                                Source="{Binding SourseUserCard}"
+                                                HorizontalAlignment="Center"
+                                                Margin="0"
+                                                Padding="0"/>
+                                        </Button>
+                                        
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </uc:CustomScrollViewer>
+
+                    <!--Left Navigation Button-->
+                    <Button 
+                        Name="navLeftBtn"
+                        Click="navLeftBtn_Click"
+                        Grid.Column="1"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        Height="350" Width="100"
+                        Visibility="Collapsed"
+                        Style="{DynamicResource NavButtonStyle}">
+                    </Button>
+
+                    <!--Right Navigation Button-->
+                    <Button
+                        Name="navRightBtn"
+                        Click="navRightBtn_Click"
+                        Grid.Column="1"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Height="350" Width="100"
+                        Style="{DynamicResource NavButtonStyle}">
+                    </Button>
+
+                    <Frame x:Name="MyFrame" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </DockPanel>
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
+</UserControl>

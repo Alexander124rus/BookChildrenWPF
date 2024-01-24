@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="BookChildrenWPF.User_Controls.InformationDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:BookChildrenWPF.User_Controls"
+             xmlns:domain="clr-namespace:BookChildrenWPF.User_Controls"
+             xmlns:materialDesignDemo="clr-namespace:BookChildrenWPF"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             mc:Ignorable="d"
+             MinHeight="400"
+             MinWidth="400" Cursor="">
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Button Margin="0"  DockPanel.Dock="Top"
+                    
+                  Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
+                  IsCancel="True"
+                  Style="{StaticResource MaterialDesignFlatButton}"
+                  Content="{materialDesign:PackIcon Kind=CloseCircleOutline, Size=34}" Cursor="Hand" Height="40" HorizontalAlignment="Right">
+
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+
+            <StackPanel Margin="0 0 0 30">
+                <FlowDocumentScrollViewer Width="800" Background="{x:Null}">
+                    <FlowDocument FontFamily="Bahnschrift SemiLight Condensed" FontSize="20">
+                        <Paragraph FontSize="22" FontWeight="Bold" TextAlignment="Center">
+                            Виртуальная выставка «Книжные дети»
+                        </Paragraph>
+                        <Paragraph TextAlignment="Justify" >
+                            О том, какие герои и книги детства, юности, взрослости повлияли на выбор жизненного пути двадцати успешных, состоявшихся сибиряков, живущих в Красноярском крае.
+                        </Paragraph>
+                        <Paragraph>
+                            Создана на основе реальной выставки в рамках партнёрского проекта «Что читают успешные люди?», победителя конкурса «Новая роль библиотек в образовании» Фонда Михаила Прохорова.
+                        </Paragraph>
+                        <Paragraph>
+                            Автор проекта Татьяна Зыкова, куратор музейных проектов, хранитель фондов Красноярского краевого краеведческого музея.
+                        </Paragraph>
+                        <Paragraph>
+                            Тексты рассказов героев выставки составлены Татьяной Зыковой на основании их воспоминаний (интервью - Юлия Лебедева, Екатерина Борисенко), их анкетирования (Татьяна Зыкова).
+                        </Paragraph>
+                        <Paragraph>
+                            Фотографии представлены самими героями выставки.
+                        </Paragraph>
+                        <Paragraph>
+                            В виртуальной экспозиции представлены книги советских, российских и зарубежных авторов. Издания разных лет (1950-2018 гг.), изданных в СССР и Российской Федерации, которые читали и любили наши герои.
+                        </Paragraph>
+                        <Paragraph>
+                            Рассказы героев озвучены Павлом Швецовым и Дианой Рекун, учащимися 9 классов красноярских школ, ведущими актерами Народного театра «Сибирячок» КККМ.
+                        </Paragraph>
+                        
+
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </StackPanel>
+
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,489 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <StartupObject>BookChildrenWPF.App</StartupObject>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Andreeva\**" />
+    <Compile Remove="Bobrik\**" />
+    <Compile Remove="Bolsunovsky\**" />
+    <Compile Remove="Capkova\**" />
+    <Compile Remove="Dusoshe\**" />
+    <Compile Remove="Exhibitions\Иланскоая межпоселенческая библиотека\**" />
+    <Compile Remove="Gorbunov\**" />
+    <Compile Remove="Matveev\**" />
+    <Compile Remove="Modestov\**" />
+    <Compile Remove="Pashnin\**" />
+    <Compile Remove="Puzinen\**" />
+    <Compile Remove="Radigina\**" />
+    <Compile Remove="Rakov\**" />
+    <Compile Remove="Rubcov\**" />
+    <Compile Remove="Safonova\**" />
+    <Compile Remove="Shpilin\**" />
+    <Compile Remove="Suhanova\**" />
+    <Compile Remove="Tarkovsky\**" />
+    <Compile Remove="Teterina\**" />
+    <Compile Remove="Zaharov\**" />
+    <Compile Remove="Zikov\**" />
+    <EmbeddedResource Remove="Andreeva\**" />
+    <EmbeddedResource Remove="Bobrik\**" />
+    <EmbeddedResource Remove="Bolsunovsky\**" />
+    <EmbeddedResource Remove="Capkova\**" />
+    <EmbeddedResource Remove="Dusoshe\**" />
+    <EmbeddedResource Remove="Exhibitions\Иланскоая межпоселенческая библиотека\**" />
+    <EmbeddedResource Remove="Gorbunov\**" />
+    <EmbeddedResource Remove="Matveev\**" />
+    <EmbeddedResource Remove="Modestov\**" />
+    <EmbeddedResource Remove="Pashnin\**" />
+    <EmbeddedResource Remove="Puzinen\**" />
+    <EmbeddedResource Remove="Radigina\**" />
+    <EmbeddedResource Remove="Rakov\**" />
+    <EmbeddedResource Remove="Rubcov\**" />
+    <EmbeddedResource Remove="Safonova\**" />
+    <EmbeddedResource Remove="Shpilin\**" />
+    <EmbeddedResource Remove="Suhanova\**" />
+    <EmbeddedResource Remove="Tarkovsky\**" />
+    <EmbeddedResource Remove="Teterina\**" />
+    <EmbeddedResource Remove="Zaharov\**" />
+    <EmbeddedResource Remove="Zikov\**" />
+    <None Remove="Andreeva\**" />
+    <None Remove="Bobrik\**" />
+    <None Remove="Bolsunovsky\**" />
+    <None Remove="Capkova\**" />
+    <None Remove="Dusoshe\**" />
+    <None Remove="Exhibitions\Иланскоая межпоселенческая библиотека\**" />
+    <None Remove="Gorbunov\**" />
+    <None Remove="Matveev\**" />
+    <None Remove="Modestov\**" />
+    <None Remove="Pashnin\**" />
+    <None Remove="Puzinen\**" />
+    <None Remove="Radigina\**" />
+    <None Remove="Rakov\**" />
+    <None Remove="Rubcov\**" />
+    <None Remove="Safonova\**" />
+    <None Remove="Shpilin\**" />
+    <None Remove="Suhanova\**" />
+    <None Remove="Tarkovsky\**" />
+    <None Remove="Teterina\**" />
+    <None Remove="Zaharov\**" />
+    <None Remove="Zikov\**" />
+    <Page Remove="Andreeva\**" />
+    <Page Remove="Bobrik\**" />
+    <Page Remove="Bolsunovsky\**" />
+    <Page Remove="Capkova\**" />
+    <Page Remove="Dusoshe\**" />
+    <Page Remove="Exhibitions\Иланскоая межпоселенческая библиотека\**" />
+    <Page Remove="Gorbunov\**" />
+    <Page Remove="Matveev\**" />
+    <Page Remove="Modestov\**" />
+    <Page Remove="Pashnin\**" />
+    <Page Remove="Puzinen\**" />
+    <Page Remove="Radigina\**" />
+    <Page Remove="Rakov\**" />
+    <Page Remove="Rubcov\**" />
+    <Page Remove="Safonova\**" />
+    <Page Remove="Shpilin\**" />
+    <Page Remove="Suhanova\**" />
+    <Page Remove="Tarkovsky\**" />
+    <Page Remove="Teterina\**" />
+    <Page Remove="Zaharov\**" />
+    <Page Remove="Zikov\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\BagraundStart.jpg" />
+    <None Remove="Assets\BookChildrenVideo.mp4" />
+    <None Remove="Assets\Exhibitions\1.jpg" />
+    <None Remove="Assets\Exhibitions\2.jpg" />
+    <None Remove="Assets\Exhibitions\3.jpg" />
+    <None Remove="Assets\Exhibitions\4.jpg" />
+    <None Remove="Assets\Exhibitions\5.jpg" />
+    <None Remove="Assets\FMPlogo.png" />
+    <None Remove="Assets\ico_home.png" />
+    <None Remove="Assets\ico_next.png" />
+    <None Remove="Assets\ico_next_scroll.png" />
+    <None Remove="Assets\ico_pause.png" />
+    <None Remove="Assets\ico_person.png" />
+    <None Remove="Assets\ico_play.png" />
+    <None Remove="Assets\ico_prev.png" />
+    <None Remove="Assets\ico_prev_scroll.png" />
+    <None Remove="Assets\ico_valume.png" />
+    <None Remove="Assets\LogoProgect.png" />
+    <None Remove="Assets\Logo\LogoAchinsk.jpg" />
+    <None Remove="Assets\Logo\LogoIlansk.jpg" />
+    <None Remove="Assets\Logo\LogoKansk.jpg" />
+    <None Remove="Assets\Logo\LogoKKKM.jpg" />
+    <None Remove="Assets\Logo\LogoMuseumRF.jpg" />
+    <None Remove="Assets\Logo\LogoProhorov.jpg" />
+    <None Remove="Assets\Logo\LogoShushenskoe.jpg" />
+    <None Remove="Assets\video.MP4" />
+    <None Remove="Bagraund.jpg" />
+    <None Remove="Bagraund2.jpg" />
+    <None Remove="BagraundStart.jpg" />
+    <None Remove="close.png" />
+    <None Remove="Heroes\А.Болсуновский\bagraund.jpg" />
+    <None Remove="Heroes\А.Болсуновский\DescriptionUser.txt" />
+    <None Remove="Heroes\А.Болсуновский\hero.jpg" />
+    <None Remove="Heroes\А.Болсуновский\QuotationUser.txt" />
+    <None Remove="Heroes\А.Болсуновский\Болсуновский А.И..mp3" />
+    <None Remove="Heroes\А.Модестов\bagraund.jpg" />
+    <None Remove="Heroes\А.Модестов\hero.jpg" />
+    <None Remove="Heroes\А.Пашнин\bagraund.jpg" />
+    <None Remove="Heroes\А.Пашнин\hero.jpg" />
+    <None Remove="Heroes\А.Пузынин\bagraund.jpg" />
+    <None Remove="Heroes\А.Пузынин\DescriptionUser.txt" />
+    <None Remove="Heroes\А.Пузынин\hero.jpg" />
+    <None Remove="Heroes\А.Пузынин\QuotationUser.txt" />
+    <None Remove="Heroes\А.Пузынин\Пузынин А..mp3" />
+    <None Remove="Heroes\В.Раков\bagraund.jpg" />
+    <None Remove="Heroes\В.Раков\hero.jpg" />
+    <None Remove="Heroes\Е.Зыков\bagraund.jpg" />
+    <None Remove="Heroes\Е.Зыков\hero.jpg" />
+    <None Remove="Heroes\И.Бобрик\bagraund.jpg" />
+    <None Remove="Heroes\И.Бобрик\hero.jpg" />
+    <None Remove="Heroes\И.Матвеев\bagraund.jpg" />
+    <None Remove="Heroes\И.Матвеев\hero.jpg" />
+    <None Remove="Heroes\И.Цапкова\bagraund.jpg" />
+    <None Remove="Heroes\И.Цапкова\hero.jpg" />
+    <None Remove="Heroes\К.Шпилин\bagraund.jpg" />
+    <None Remove="Heroes\К.Шпилин\hero.jpg" />
+    <None Remove="Heroes\М.Дюсуше\bagraund.jpg" />
+    <None Remove="Heroes\М.Дюсуше\hero.jpg" />
+    <None Remove="Heroes\М.Тарковский\bagraund.jpg" />
+    <None Remove="Heroes\М.Тарковский\hero.jpg" />
+    <None Remove="Heroes\Н.Захаров\bagraund.jpg" />
+    <None Remove="Heroes\Н.Захаров\hero.jpg" />
+    <None Remove="Heroes\Н.Сафонова\bagraund.jpg" />
+    <None Remove="Heroes\Н.Сафонова\hero.jpg" />
+    <None Remove="Heroes\Н.Суханова\bagraund.jpg" />
+    <None Remove="Heroes\Н.Суханова\hero.jpg" />
+    <None Remove="Heroes\С.Горбунов\bagraund.jpg" />
+    <None Remove="Heroes\С.Горбунов\hero.jpg" />
+    <None Remove="Heroes\С.Рубцов\bagraund.jpg" />
+    <None Remove="Heroes\С.Рубцов\hero.jpg" />
+    <None Remove="Heroes\С.Тетерина\bagraund.jpg" />
+    <None Remove="Heroes\С.Тетерина\hero.jpg" />
+    <None Remove="Heroes\Т.Андреева\bagraund.jpg" />
+    <None Remove="Heroes\Т.Андреева\hero.jpg" />
+    <None Remove="Heroes\Э.Радыгина\bagraund.jpg" />
+    <None Remove="Heroes\Э.Радыгина\hero.jpg" />
+    <None Remove="ico_next.png" />
+    <None Remove="person1.png" />
+    <None Remove="User_Controls\BagraundStart.jpg" />
+    <None Remove="User_Controls\выставка книжные дети в Иланском Иланские вести 1 8 22.MP4" />
+    <None Remove="wallGta5.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Heroes\А.Болсуновский\temp.xaml" />
+    <Page Remove="Heroes\А.Пузынин\temp.xaml" />
+    <Page Remove="Heroes\К.Шпилин\temp.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\BookChildrenVideo.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\ICO.ico" />
+    <Content Include="Assets\video.MP4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GihanSoft.String.NaturalComparer" Version="3.0.1" />
+    <PackageReference Include="MaterialDesignColors" Version="2.0.9" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+    <PackageReference Include="ShowMeTheXAML" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\BagraundStart.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Exhibitions\1.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Exhibitions\2.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Exhibitions\3.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Exhibitions\4.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Exhibitions\5.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\FMPlogo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ico_home.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ico_next.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ico_next_scroll.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ico_pause.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ico_person.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ico_play.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ico_prev.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ico_prev_scroll.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ico_valume.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\LogoProgect.png" />
+    <Resource Include="Assets\Logo\LogoAchinsk.jpg" />
+    <Resource Include="Assets\Logo\LogoIlansk.jpg" />
+    <Resource Include="Assets\Logo\LogoKansk.jpg" />
+    <Resource Include="Assets\Logo\LogoKKKM.jpg" />
+    <Resource Include="Assets\Logo\LogoMuseumRF.jpg" />
+    <Resource Include="Assets\Logo\LogoProhorov.jpg" />
+    <Resource Include="Assets\Logo\LogoShushenskoe.jpg" />
+    <Resource Include="BagraundStart.jpg" />
+    <Resource Include="close.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Болсуновский\bagraund.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Болсуновский\DescriptionUser.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Болсуновский\hero.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Болсуновский\QuotationUser.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Болсуновский\temp.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Болсуновский\Болсуновский А.И..mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Модестов\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Модестов\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Пашнин\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Пашнин\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Пузынин\bagraund.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Пузынин\DescriptionUser.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Пузынин\hero.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Пузынин\QuotationUser.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Пузынин\temp.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\А.Пузынин\Пузынин А..mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\В.Раков\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\В.Раков\hero.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Е.Зыков\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Е.Зыков\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\И.Бобрик\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\И.Бобрик\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\И.Матвеев\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\И.Матвеев\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\И.Цапкова\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\И.Цапкова\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\К.Шпилин\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\К.Шпилин\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\К.Шпилин\temp.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\М.Дюсуше\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\М.Дюсуше\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\М.Тарковский\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\М.Тарковский\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Н.Захаров\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Н.Захаров\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Н.Сафонова\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Н.Сафонова\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Н.Суханова\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Н.Суханова\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\С.Горбунов\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\С.Горбунов\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\С.Рубцов\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\С.Рубцов\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\С.Тетерина\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\С.Тетерина\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Т.Андреева\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Т.Андреева\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Э.Радыгина\bagraund.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Heroes\Э.Радыгина\hero.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ico_next.png" />
+    <Resource Include="User_Controls\BagraundStart.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="User_Controls\InformationDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\Bagraund2.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\music1.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\news1.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\news2.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\news3.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\news4.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\news5.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\news6.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\news7.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\news8.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\news9.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\person1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\person2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\person3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\wallGta5.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="User_Controls\InformationDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

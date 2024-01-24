@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="BookChildrenWPF.User_Controls.StartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:BookChildrenWPF.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Background>
+        <ImageBrush ImageSource="/User_Controls/BagraundStart.jpg" Stretch="UniformToFill"></ImageBrush>
+    </UserControl.Background>
+
+    <materialDesign:DialogHost DialogTheme="Inherit"
+                             Identifier="RootDialog"
+                             SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+            <DockPanel>
+                <Image MaxWidth="800" Margin="20" Source="/Assets/LogoProgect.png" DockPanel.Dock="Top"></Image>
+                <Grid DockPanel.Dock="Top" Height="auto">
+                    <!--<Rectangle Fill="#325889" Grid.ColumnSpan="2" Height="80" Width="auto" VerticalAlignment="Top" />-->
+                    <Grid Margin="100 0 100 0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Grid.Row="0">
+                            <TextBlock x:Name="DescriptionStart" 
+                                           Margin="0,0,20,0" 
+                                           Padding="0" 
+                                           FontSize="50" 
+                                           Foreground="#fff" 
+                                           TextWrapping="Wrap" 
+                                           FontFamily="Bahnschrift SemiLight Condensed" 
+                                           TextAlignment="Justify"
+                                           Text="Выставка «Книжные дети», проекта «Что читают успешные люди?», победителя конкурса «Новая роль библиотек в образовании» Фонда Михаила Прохорова." Cursor="" />
+                            <Button
+                                Click="OpenUser"
+                                Background="#ec1b30"
+                                Content="Начать экскурсию"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                
+                                FontSize="45"
+                                FontFamily="Bahnschrift SemiLight Condensed" 
+                                BorderBrush="#00000000" 
+                                Margin="0,40,0,0"
+                                Width="400"
+                                Height="70" Cursor="Hand" />
+                        </StackPanel>
+                        <Viewbox Grid.Column="1" Grid.Row="0" Stretch="Uniform">
+                            <MediaElement Name="videoElement"
+                                x:FieldModifier="public"
+                                Source="Assets/BookChildrenVideo.mp4" 
+                                LoadedBehavior="Play" VerticalAlignment="Top"/>
+                        </Viewbox>
+                        <StackPanel Grid.ColumnSpan="2" Grid.Row="1">
+                            <TextBlock Text="Наши выставки"
+                                       Margin="10,20,10,10"
+                                       Foreground="#fff" 
+                                       TextAlignment="Center" 
+                                       FontSize="38"
+                                       FontFamily="Bahnschrift SemiLight Condensed" ></TextBlock>
+                            <ItemsControl x:Name="UserCardListBox1">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel HorizontalAlignment="Center"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button 
+                                            Click="OpenExhibition"
+                                            CommandParameter="{Binding IdUserCard}"
+                                            Width="250" 
+                                            Height="200" 
+                                            BorderBrush="#00000000" 
+                                            Background="#00000000" VerticalAlignment="Top">
+                                            <StackPanel VerticalAlignment="Top">
+                                                <Image Source="{Binding SourseUserCard}" VerticalAlignment="Top"></Image>
+                                                <Viewbox StretchDirection="UpOnly" VerticalAlignment="Top">
+                                                    <TextBlock Text="{Binding DescriptionUserCard}" 
+                                                       TextWrapping="Wrap"
+                                               
+                                                       Background="#ec1b30"
+                                                       FontFamily="Bahnschrift SemiLight Condensed" 
+                                                       FontSize="21" 
+                                                       TextAlignment="Center" VerticalAlignment="Center" 
+                                                       Height="250"
+                                                       Width="220"        />
+                                                </Viewbox>
+                                            </StackPanel>
+                                        </Button>
+
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <!--<WrapPanel  VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                                
+                                <Button 
+                                    Click="OpenExhibition1"
+                                    Width="250" 
+                                    Height="250" 
+                                    BorderBrush="#00000000" 
+                                    Background="#00000000">
+                                    <StackPanel>
+                                        <Image Source="/Assets/Exhibitions/1.jpg"></Image>
+                                        <Viewbox StretchDirection="UpOnly">
+                                            <TextBlock Text="Иланскоая межпоселенческая библиотека" 
+                                               TextWrapping="Wrap"
+                                               
+                                               Background="#ec1b30"
+                                               FontFamily="Bahnschrift SemiLight Condensed" 
+                                               FontSize="18" 
+                                               TextAlignment="Center" VerticalAlignment="Center" Width="218"/>
+                                        </Viewbox>
+                                    </StackPanel>
+                                </Button>
+                                
+
+                            </WrapPanel>-->
+                        </StackPanel>
+                    </Grid>
+                    <Grid VerticalAlignment="Bottom" Height="90" Background="#FFBDD6D3">
+                        <WrapPanel HorizontalAlignment="Center">
+                            <Image Width="150" Margin="20" Source="/Assets/Logo/LogoAchinsk.jpg"></Image>
+                            <Image Width="150" Margin="20" Source="/Assets/Logo/LogoIlansk.jpg"></Image>
+                            <Image Width="150" Margin="20" Source="/Assets/Logo/LogoKansk.jpg"></Image>
+                            <Image Width="150" Margin="20" Source="/Assets/Logo/LogoKKKM.jpg"></Image>
+                            <Image Width="150" Margin="20" Source="/Assets/Logo/LogoMuseumRF.jpg"></Image>
+                            <Image Width="150" Margin="20" Source="/Assets/Logo/LogoShushenskoe.jpg"></Image>
+                        </WrapPanel>
+                    </Grid>
+                    <Frame x:Name="contentExhibition"
+                       Panel.ZIndex="9" 
+                       NavigationUIVisibility="Hidden" Margin="0,-168,0,0"/>
+                </Grid>
+
+            </DockPanel>
+
+        </materialDesign:DrawerHost>
+
+    </materialDesign:DialogHost>
+
+</UserControl>
